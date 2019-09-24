@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Demand Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -18,6 +18,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
+				function postContactToGoogle() {
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+				var msg = $('#msg').val();
+				// console.log(email+"  "+last);
+
+        // var company = $('#Company').val();
+
+            $.ajax({
+                url: "https://docs.google.com/forms/d/e/1FAIpQLSc5Db_3DG6yQYuMorlcWdh4DD412d5iIst7RaStmvaGnEiZbQ/formResponse",
+                data: { "entry.805097249": name,
+                "entry.971411464": email,
+								 "entry.542720449":phone, 
+								 "entry.55311507": msg },
+                type: "POST",
+                datatype: 	"xml",
+                statusCode: {
+                    0: function () {
+                        window.location.href="index.html";
+                    },
+                    200: function () {
+											window.location.href="index.html";
+                    }
+                }
+            });
+    }
+
     </script>
 	
 	<!-- css files -->
@@ -106,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-lg-4 col-md-6 contact-form mt-md-0 mt-4">
 				<h4 class="mb-sm-4 mb-3 w3f_title">Contact Form</h4>
-				<form name="contactform" id="contactform" action="mailhandler.php" method="post" name="form" onsubmit="return(validate());" novalidate="novalidate">
+				<form name="contactform" id="contactform"  name="form" >
 						<div class="form-group">
 						  <label>Name</label>
 						  <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
@@ -121,10 +149,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						<div class="form-group">
 						  <label>How can we help?</label>
-						  <textarea name="msg" class="form-control" id="iq" placeholder="Enter Your Message Here"></textarea>
+						  <textarea name="msg" class="form-control" id="iq" placeholder="Enter Your Message Here" name="msg"></textarea>
 						</div>				
-						<button type="submit" name="submit" class="btn btn-default">Submit</button>
+						
 					</form>
+					<button onclick="postContactToGoogle()" class="btn btn-default">Submit</button>
 			</div>
 			<div class="col-lg-4 mt-lg-0 mt-5 contact-map">
 				<h4 class="mb-4 w3f_title">Contact Map</h4>
@@ -280,7 +309,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#">datatype: 'application/json',
 								Disclaimer.
 							</a>
 						</li>
