@@ -23,7 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         var email = $('#email').val();
         var phone = $('#phone').val();
 				var msg = $('#msg').val();
-				// console.log(email+"  "+last);
+				// console.log(email+"  "+last)*+;
 
         // var company = $('#Company').val();
 
@@ -37,10 +37,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 datatype: 	"xml",
                 statusCode: {
                     0: function () {
-                        window.location.href="index.html";
+                         var x = document.getElementById("snackbar");
+						x.className = "show";
+						setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+						$('#name').val()='';
+						$('#email').val()='';
+						$('#phone').val()='';
                     },
                     200: function () {
-											window.location.href="index.html";
+											var x = document.getElementById("snackbar");
+  											x.className = "show";
+  											setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+											  $('#name').val()='';
+						$('#email').val()='';
+						$('#phone').val()='';
                     }
                 }
             });
@@ -164,6 +174,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </section>
 <!-- //contact -->
+
+<div id="snackbar">Thank You.... We will contact you shortly.</div>
 
 <!-- footer -->
 <footer class="footer py-md-5 pt-4 pb-5">
