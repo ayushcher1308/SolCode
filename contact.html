@@ -10,6 +10,35 @@
 <meta name="keywords" content="Demand Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+           emailjs.init('user_5QSOT7DOhoF8A2lU8YIl7');
+        })();
+	</script>
+	
+	<script type="text/javascript">
+        window.onload = function() {
+			console.log("heh");
+            document.getElementById('contactform').addEventListener('submit', function(event) {
+				console.log("subm");
+                event.preventDefault();
+                // generate the contact number value
+                // this.phone.value = Math.random() * 10000000000 | 0;
+				emailjs.sendForm('solcode.enterprise@gmail', 'template_ms5zc65x', this)
+							.then(function(response) {
+				console.log('SUCCESS!', response.status, response.text);
+				}, function(err) {
+				console.log('FAILED...', err);
+				});
+				var x = document.getElementById("snackbar");
+  				x.className = "show";
+  				setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+            });
+        }
+    </script>
+
+
     <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -17,7 +46,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         function hideURLbar() {
             window.scrollTo(0, 1);
-        }
+		}
+		
+
+
 				function postContactToGoogle() {
         var name = $('#name').val();
         var email = $('#email').val();
@@ -27,33 +59,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         // var company = $('#Company').val();
 
-            $.ajax({
-                url: "https://docs.google.com/forms/d/e/1FAIpQLSc5Db_3DG6yQYuMorlcWdh4DD412d5iIst7RaStmvaGnEiZbQ/formResponse",
-                data: { "entry.805097249": name,
-                "entry.971411464": email,
-								 "entry.542720449":phone, 
-								 "entry.55311507": msg },
-                type: "POST",
-                datatype: 	"xml",
-                statusCode: {
-                    0: function () {
-                         var x = document.getElementById("snackbar");
-						x.className = "show";
-						setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-						$('#name').val()='';
-						$('#email').val()='';
-						$('#phone').val()='';
-                    },
-                    200: function () {
-											var x = document.getElementById("snackbar");
-  											x.className = "show";
-  											setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-											  $('#name').val()='';
-						$('#email').val()='';
-						$('#phone').val()='';
-                    }
-                }
-            });
+            // $.ajax({
+            //     url: "https://docs.google.com/forms/d/e/1FAIpQLSc5Db_3DG6yQYuMorlcWdh4DD412d5iIst7RaStmvaGnEiZbQ/formResponse",
+            //     data: { "entry.805097249": name,
+            //     "entry.971411464": email,
+						// 		 "entry.542720449":phone, 
+						// 		 "entry.55311507": msg },
+            //     type: "POST",
+            //     datatype: 	"xml",
+            //     statusCode: {
+            //         0: function () {
+            //              var x = document.getElementById("snackbar");
+						// x.className = "show";
+						// setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+						// $('#name').val()='';
+						// $('#email').val()='';
+						// $('#phone').val()='';
+            //         },
+            //         200: function () {
+		
+											  // $('#name').val()='';
+						// $('#email').val()='';
+						// $('#phone').val()='';
+            //         }
+            //     }
+            // });
     }
 
     </script>
@@ -64,10 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
 	<!-- //css files -->
 	
-	<!-- google fonts -->
-	<link href="//fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
-	<!-- //google fonts -->
+	
 	
 </head>
 <body>
@@ -143,26 +170,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-lg-4 col-md-6 contact-form mt-md-0 mt-4">
 				<h4 class="mb-sm-4 mb-3 w3f_title">Contact Form</h4>
-				<form name="contactform" id="contactform"  name="form" >
+				<form name="contactform" id="contactform" >
 						<div class="form-group">
 						  <label>Name</label>
-						  <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+						  <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
 						</div>
 						<div class="form-group">
 						  <label>Email</label>
-						  <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
+						  <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
 						</div>
 						<div class="form-group">
 								<label>Phone</label>
-								<input type="tel" class="form-control" id="phone" placeholder="Enter Mobile number" name="phone">
+								<input type="tel" class="form-control" id="phone" placeholder="Enter Mobile number" name="phone" required>
 							</div>
 						<div class="form-group">
 						  <label>How can we help?</label>
 						  <textarea name="msg" class="form-control" id="iq" placeholder="Enter Your Message Here" name="msg"></textarea>
 						</div>				
-						
+						<button type="submit" class="btn btn-default">Submit</button>	
 					</form>
-					<button onclick="postContactToGoogle()" class="btn btn-default">Submit</button>
+					
 			</div>
 			<div class="col-lg-4 mt-lg-0 mt-5 contact-map">
 				<h4 class="mb-4 w3f_title">Contact Map</h4>
