@@ -13,7 +13,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-           emailjs.init('user_5QSOT7DOhoF8A2lU8YIl7');
+           emailjs.init('user_X8W1VN7U7BCPEMebAfXg7');
         })();
 	</script>
 	
@@ -25,12 +25,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 event.preventDefault();
                 // generate the contact number value
                 // this.phone.value = Math.random() * 10000000000 | 0;
-				emailjs.sendForm('solcode.enterprise@gmail', 'template_ms5zc65x', this)
+				emailjs.sendForm('solcodeteam', 'template_1Bm1U4Un', this)
 							.then(function(response) {
 				console.log('SUCCESS!', response.status, response.text);
 				}, function(err) {
 				console.log('FAILED...', err);
 				});
+				document. getElementById("contactform"). reset()
 				var x = document.getElementById("snackbar");
   				x.className = "show";
   				setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
@@ -40,13 +41,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
     <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
+        // addEventListener("load", function () {
+        //     setTimeout(hideURLbar, 0);
+        // }, false);
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-		}
+        // function hideURLbar() {
+        //     window.scrollTo(0, 1);
+		// }
 		
 
 
@@ -157,7 +158,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul class="list-w3">
 					<li class="d-flex"><span class="fa mt-1 mr-1 fa-map-marker"></span>Dehradun, Uttarakhand 248001, IN </li>
 					<li class="my-3"><span class="fa mr-1 fa-phone"></span>+91-8699957304</li>
-					<li class=""><span class="fa mr-1 fa-envelope"></span><a href="mailto:solcode.enterprise@gmail.com">solcode.enterprise@gmail.com</a></li>
+					<li class=""><span class="fa mr-1 fa-envelope"></span><a href="mailto:contact@solcode.in"><span>contact@solcode.in</span></a></li>
 				</ul>
 				<h4 class="mt-md-5 mt-4 mb-3 w3f_title">Follow Us</h4>
 				<p>You can follow us on following social networking Sites.</p>
@@ -185,7 +186,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						<div class="form-group">
 						  <label>How can we help?</label>
-						  <textarea name="msg" class="form-control" id="iq" placeholder="Enter Your Message Here" name="msg"></textarea>
+						  <textarea name="msg" class="form-control" id="message" placeholder="Enter Your Message Here" name="msg"></textarea>
 						</div>				
 						<button type="submit" class="btn btn-default">Submit</button>	
 					</form>
@@ -211,8 +212,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h4 class="mb-sm-4 mb-3 w3f_title">Contact Info</h4>
 					<ul class="list-w3">
 						<!-- <li><span class="fa mr-1 fa-map-marker"></span>2130 Fulton Street, San Diego, CA 94117-1080 USA</li> -->
-						<li class="my-2"><span class="fa mr-1 fa-phone"></span>+91-8699957304</li>
-						<li class=""><span class="fa mr-1 fa-envelope"></span><a href="mailto:solcode.enterprise@gmail.com"><span>solcode.enterprise@gmail.com</span></a></li>
+						<li class="my-2"><span class="fa mr-1 fa-phone"></span>+91-8699957304<a href="https://api.whatsapp.com/send?phone=918699957304" target="blank"><img src="images/whatsapp.png" style="height: 25px;
+							padding-left: 10px;"/></a></li>
+						<li class=""><span class="fa mr-1 fa-envelope"></span><a href="mailto:contact@solcode.in"><span>contact@solcode.in</span></a></li>
 					</ul>
 				</div>
 				<div class="col-lg-3 col-sm-6 footv3-left mt-sm-0 mt-4" style="text-align: right">
